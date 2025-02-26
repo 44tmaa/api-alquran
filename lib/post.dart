@@ -11,7 +11,7 @@ class PostsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Posts"),
+        title: const Text("Al-Quran Curig"),
       ),
       body: FutureBuilder<List<Surah>>(
         future: httpService.getSurah(),
@@ -48,16 +48,16 @@ class PostsPage extends StatelessWidget {
                     subtitle: Text("Arti: ${post.arti}"),
                     trailing: const Icon(Icons.arrow_forward_ios),
                     onTap: () async{
-                      // final surahDetail =
-                      // await httpService.getSurahDetail(post.nomor);
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(
-                      //     builder: (context) => PostDetail(
-                      //       surahDetail: surahDetail,
-                      //     ),
-                      //   ),
-                      // );
+                       final surahDetail =
+                       await httpService.getSurahDetail(post.nomor);
+                       Navigator.push(
+                         context,
+                         MaterialPageRoute(
+                           builder: (context) => PostDetail(
+                             surahDetail: surahDetail,
+                          ),
+                         ),
+                       );
                     },
                   ),
                 );
